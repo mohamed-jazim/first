@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+</head>
+<body>
+<h2>User Signup</h2>
+
+<!-- Display success message if redirected with "?success" parameter -->
+<div th:if="${param.success}">
+    <p style="color: green;">Signup successful! User has been added to the database.</p>
+</div>
+
+<form action="/signup" method="post" th:object="${user}">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" th:field="*{username}" required>
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" th:field="*{password}" required>
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:field="*{email}" required>
+    <br>
+
+    <button type="submit">Sign Up</button>
+</form>
+</body>
+</html>
